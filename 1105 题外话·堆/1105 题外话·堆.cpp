@@ -57,10 +57,139 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+
+int heap[100010] = { 0 };
+
+int heapSize = 0;
+
+
+int parent(int son)
+{
+
+	return son / 2;
+
+}
+
+int left(int parent)
+{
+	return 2 * parent;
+}
+
+
+int right(int parent)
+{
+	return 2 * parent + 1;
+}
+
+void insertCandy(int weight)
+{
+	//throw std::logic_error("The method or operation is not implemented.");
+
+	++heapSize;//堆从下标为一开始存储；
+
+	heap[heapSize] = weight;
+
+	int tmp = heapSize;
+	int inTmp = 0;
+
+	while (tmp > 1 && heap[parent(tmp)] < heap[tmp])
+	{
+		inTmp = heap[parent(tmp)];
+		heap[parent(tmp)] = heap[tmp];
+		heap[tmp] = inTmp;
+
+		tmp = parent(tmp);
+	}
+
+}
+
+int eatCandy()
+{
+	//throw std::logic_error("The method or operation is not implemented.");
+
+	if (heapSize == 0)
+	{
+		return -1;
+	}
+
+	int result = heap[1];
+
+	heap[1] = heap[heapSize];
+
+	--heapSize;
+
+	//start compare with children
+	int tmp = 1;
+	int larger;
+
+	while (true)
+	{
+		larger = tmp;
+
+		if (left(tmp) <= heapSize && heap[left(tmp)] > heap[tmp])
+		{
+			larger = left(tmp);
+		}
+
+		if (right(tmp) <= heapSize && heap[right(tmp)] > heap[larger])//notice:heap[right(tmp)] > heap[larger] ; not  heap[right(tmp)] > heap[tmp];
+		{
+			larger = right(tmp);
+		}
+
+		if (larger == tmp)
+		{
+			break;
+		}
+		else
+		{
+			heap[tmp] ^= heap[larger];
+			heap[larger] ^= heap[tmp];
+			heap[tmp] ^= heap[larger];
+
+			tmp = larger;
+		}
+
+	}
+
+
+	return result;
+
+}
+
 int main()
 {
 
 	freopen("../test.txt", "r", stdin);
+
+	int N;
+
+	scanf("%d\n", &N);
+
+	char type;
+	int weight;
+
+	while ((N --) != 0)
+	{
+		scanf("%c", &type);
+
+		if (type == 'A')
+		{
+			scanf("%d\n", &weight);
+
+			insertCandy(weight);
+		}
+		else if (type == 'T')
+		{
+			scanf("\n");
+
+			int tmpCandy = eatCandy();
+
+			printf("%d\n", tmpCandy);
+		}
+
+
+	}
+
 
 
 }

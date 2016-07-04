@@ -1,12 +1,16 @@
-5
-babaab
-babbbaaaa
-abba
-aaaaabaa
-babaababb
-5
-babb
-baabaaa
-bab
-bb
-bbabbaab
+15
+A 323
+A 77751
+A 1329
+A 434244
+A 26239
+A 4543
+A 11
+A 656
+T
+A 80317
+T
+T
+T
+T
+T
