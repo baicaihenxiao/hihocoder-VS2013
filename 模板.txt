@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <iostream>
+#include <string>
+#include <vector>
+using std::string;
+using std::vector;
+using std::cout;
+using std::cin;
+using std::endl;
+
+int main()
+{
+
+	freopen("../test.txt", "r", stdin);
+
+
+}
