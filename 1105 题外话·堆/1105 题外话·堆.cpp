@@ -164,7 +164,7 @@ int main()
 	int N;
 
 	scanf("%d\n", &N);
-
+	
 	char type;
 	int weight;
 
