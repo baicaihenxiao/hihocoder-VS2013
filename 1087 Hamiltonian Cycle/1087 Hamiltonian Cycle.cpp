@@ -3,6 +3,8 @@
 
 http://hihocoder.com/problemset/problem/1087
 
+官方题解：http://hihocoder.com/discuss/question/2192
+
 网上教程:http://code.bitjoy.net/2015/09/19/hihocoder-1087-week-63-1-hamiltonian-cycle/
 
 #1087 : Hamiltonian Cycle
