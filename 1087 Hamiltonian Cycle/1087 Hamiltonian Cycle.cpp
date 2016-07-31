@@ -4,28 +4,28 @@
 http://hihocoder.com/problemset/problem/1087
 
 #1087 : Hamiltonian Cycle
-Ê±¼äÏŞÖÆ:10000ms
-µ¥µãÊ±ÏŞ:1000ms
-ÄÚ´æÏŞÖÆ:256MB
-ÃèÊö
+æ—¶é—´é™åˆ¶:10000ms
+å•ç‚¹æ—¶é™:1000ms
+å†…å­˜é™åˆ¶:256MB
+æè¿°
 Given a directed graph containing n vertice (numbered from 1 to n) and m edges. Can you tell us how many different Hamiltonian Cycles are there in this graph?
 
 A Hamiltonian Cycle is a cycle that starts from some vertex, visits each vertex (except for the start vertex) exactly once, and finally ends at the start vertex.
 
 Two Hamiltonian Cycles C1, C2 are different if and only if there exists some vertex i that, the next vertex of vertex i in C1 is different from the next vertex of vertex i in C2.
 
-ÊäÈë
+è¾“å…¥
 The first line contains two integers n and m. 2 <= n <= 12, 1 <= m <= 200.
 
 Then follows m line. Each line contains two different integers a and b, indicating there is an directed edge from vertex a to vertex b.
 
-Êä³ö
+è¾“å‡º
 Output an integer in a single line -- the number of different Hamiltonian Cycles in this graph.
 
-ÌáÊ¾
-¶îÍâµÄÑùÀı:
+æç¤º
+é¢å¤–çš„æ ·ä¾‹:
 
-ÑùÀıÊäÈë	ÑùÀıÊä³ö
+æ ·ä¾‹è¾“å…¥	æ ·ä¾‹è¾“å‡º
 3 3
 1 2
 2 1
@@ -35,7 +35,7 @@ Output an integer in a single line -- the number of different Hamiltonian Cycles
 
 
 
-ÑùÀıÊäÈë
+æ ·ä¾‹è¾“å…¥
 4 7
 1 2
 2 3
@@ -44,7 +44,7 @@ Output an integer in a single line -- the number of different Hamiltonian Cycles
 1 3
 4 2
 2 1
-ÑùÀıÊä³ö
+æ ·ä¾‹è¾“å‡º
 2
 
 
