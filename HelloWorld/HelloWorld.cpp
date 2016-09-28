@@ -1,46 +1,40 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <vector>
+#include <algorithm>
+#include <iostream>
 
-char* func1()
+struct Sum
 {
-	char* a = (char*)malloc(10 * sizeof(char));
-
-	strcpy(a, "asdf");
-
-	printf("func1: 数组a=<%s>, 地址a=<%p>\n", a, a);
-
-
-	return a;
-}
-
-char* func2()
-{
-	char a[10] = "zxcv";
-
-
-	printf("func2: 数组a=<%s>, 地址a=<%p>\n", a, a);
-
-	return a;
-}
+	Sum() : sum{ 0 } { }
+	void operator()(int n) { sum += n; }
+	int sum;
+};
 
 int main()
 {
-	
-	char* a = func1();
+	std::vector<int> nums{ 3, 4, 2, 8, 15, 267 };
 
-	printf("func1: 数组a=<%s>, 地址a=<%p>\n", a, a);
+	std::cout << "before:";
+	for (auto const &n : nums)
+	{
+		std::cout << ' ' << n;
+	}
+	std::cout << '\n';
 
+	std::for_each(nums.begin(), nums.end(), [](int n){ n++; });
 
-	//strcpy(a, "1asdf111");
+	// calls Sum::operator() for each number
+	Sum s = std::for_each(nums.begin(), nums.end(), Sum());
 
-	//printf("func1: 数组a=<%s>, 地址a=<%p>\n", a, a);
+	for (auto&& n : nums)
+	{
+		++ n;
+	}
 
-
-	a = func2();
-
-	printf("func2: 数组a=<%s>, 地址a=<%p>\n", a, a);
-
-
-	return 0;
+	std::cout << "after: ";
+	for (auto const &n : nums)
+	{
+		std::cout << ' ' << n;
+	}
+	std::cout << '\n';
+	std::cout << "sum: " << s.sum << '\n';
 }
