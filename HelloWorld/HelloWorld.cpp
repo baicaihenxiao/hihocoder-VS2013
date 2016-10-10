@@ -1,46 +1,19 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <list>
+#include <iostream>
+using namespace std;
 
-char* func1()
+struct CacheNode
 {
-	char* a = (char*)malloc(10 * sizeof(char));
+	int key;
+	int value;
 
-	strcpy(a, "asdf");
+	CacheNode(int key, int value) : key(key), value(value) {}
+};
 
-	printf("func1: 数组a=<%s>, 地址a=<%p>\n", a, a);
-
-
-	return a;
-}
-
-char* func2()
-{
-	char a[10] = "zxcv";
-
-
-	printf("func2: 数组a=<%s>, 地址a=<%p>\n", a, a);
-
-	return a;
-}
+int a = 0;
 
 int main()
 {
-	
-	char* a = func1();
+	constexpr int *a = nullptr;
 
-	printf("func1: 数组a=<%s>, 地址a=<%p>\n", a, a);
-
-
-	//strcpy(a, "1asdf111");
-
-	//printf("func1: 数组a=<%s>, 地址a=<%p>\n", a, a);
-
-
-	a = func2();
-
-	printf("func2: 数组a=<%s>, 地址a=<%p>\n", a, a);
-
-
-	return 0;
 }
