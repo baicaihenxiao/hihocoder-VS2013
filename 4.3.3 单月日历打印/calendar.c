@@ -50,7 +50,7 @@ void PrintCalendar(int year, int month)
 	int i;
 	weekday = CalculateFirstWeekday(year, month);
 	days_of_month = CalculateDaysOfMonth(year, month);
-	printf("Calendar %4d - %2.2d\n", year, month);
+	printf("   Calendar %4d - %2.2d\n", year, month);
 	printf(" ---------------------\n");
 	printf(" Mo Tu We Th Fr Sa Su\n");
 	printf(" ---------------------\n");
