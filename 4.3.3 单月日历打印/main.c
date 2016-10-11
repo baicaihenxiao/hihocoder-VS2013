@@ -8,7 +8,6 @@ int main()
 
 	Welcome();
 	year = GetYear();
-	month = GetMonth();
-	PrintCalendar(year, month);
+	PrintCalendarForOneYear(year);
 	return 0;
 }

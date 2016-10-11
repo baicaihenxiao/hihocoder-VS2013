@@ -15,3 +15,7 @@ int CalculateDaysBefore(int year);
 int CalculateDaysOfMonth(int year, int month);
 
 int CalculateFirstWeekday(int year, int month);
+
+void PrintCalenderWith4Month(int year, int beginMonth);
+
+void PrintCalendarForOneYear(int year);

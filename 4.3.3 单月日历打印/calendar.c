@@ -43,37 +43,73 @@ int GetMonth()
 	return month;
 }
 
-
-void PrintCalendar(int year, int month)
+void PrintCalendarForOneYear(int year)
 {
-	int weekday, days_of_month;
-	int i;
-	weekday = CalculateFirstWeekday(year, month);
-	days_of_month = CalculateDaysOfMonth(year, month);
-	printf("   Calendar %4d - %2.2d\n", year, month);
-	printf(" ---------------------\n");
-	printf(" Mo Tu We Th Fr Sa Su\n");
-	printf(" ---------------------\n");
-
-	for (i = 1; i < weekday; ++i)
+	int i = 0;
+	for (i = 0; i < 3; ++ i)
 	{
-		printf("   ");
+		PrintCalenderWith4Month(year, i * 4 + 1);
+	}
+}
+
+void PrintCalenderWith4Month(int year, int beginMonth)
+{
+	int i = 0, j = 0;
+	int days_of_month[4], weekday[4], currentDay[4];
+	for (i = 0; i < 4; ++i)
+	{
+		days_of_month[i] = CalculateDaysOfMonth(year, beginMonth + i);
+		weekday[i] = CalculateFirstWeekday(year, beginMonth + i);
+		currentDay[i] = 1;
+	}
+	for (i = 0; i < 4; ++ i)
+	{
+		printf("   Calendar %4d-%2.2d  ", year, beginMonth + i);
 	}
 
-	for (i = 1; i <= days_of_month; i ++)
-	{
-		printf("%3d", i);
+	printf("\n -------------------------------------------------------------------------------------\n");
+	printf(" Mo Tu We Th Fr Sa Su Mo Tu We Th Fr Sa Su Mo Tu We Th Fr Sa Su Mo Tu We Th Fr Sa Su\n");
+	printf(" ---------------------------------------------------------------------------------------\n");
 
-		if ((i + weekday - 1) % 7 == 0 && i != days_of_month)
+	for (i = 0; i < 4; ++i)
+	{
+		for (j = 1; j < weekday[i]; ++ j)
 		{
-			printf("\n");
+			printf("   ");
 		}
-
+		for (j = weekday[i]; j <= 7; ++ j)
+		{
+			printf("%3d", currentDay[i]);
+			++currentDay[i];
+		}
 	}
+	printf("\n");
 
-	printf("\n---------------------\n");
+	while (currentDay[0] <= days_of_month[0] || currentDay[1] <= days_of_month[1] || currentDay[2] <= days_of_month[2] || currentDay[3] <= days_of_month[3])
+	{
+		for (i = 0; i < 4; ++i)
+		{
+			for (j = 0; j < 7; ++j)
+			{
+				if (currentDay[i] <= days_of_month[i])
+				{
+					printf("%3d", currentDay[i]);
+					++currentDay[i];
+				}
+				else
+				{
+					printf("   ");
+				}
+			}
+		}
+		printf("\n");
+	}
+	
+	printf(" ---------------------------------------------------------------------------------------\n");
 
 }
+
+
 
 BOOL IsLeapYear(int year)
 {
@@ -107,7 +143,7 @@ int CalculateDaysBefore(int year)
 
 int CalculateDaysOfMonth(int year, int month)
 {
-	if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)\
+	if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
 		return 31;
 	else if (month != 2)
 		return 30;
@@ -128,5 +164,10 @@ int CalculateFirstWeekday(int year, int month)
 		}
 	}
 
-	return (days_before + START_WEEKDAY) % 7;
+	int res = (days_before + START_WEEKDAY) % 7;
+
+	if (res == 0)
+		return 7;
+	else
+		return res;
 }
