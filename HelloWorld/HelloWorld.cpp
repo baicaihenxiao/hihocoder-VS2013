@@ -1,5 +1,9 @@
-<<<<<<< HEAD
+
 #include <list>
+#include <iostream>
+
+#include <vector>
+#include <algorithm>
 #include <iostream>
 using namespace std;
 
@@ -11,16 +15,7 @@ struct CacheNode
 	CacheNode(int key, int value) : key(key), value(value) {}
 };
 
-int a = 0;
 
-int main()
-{
-	constexpr int *a = nullptr;
-
-=======
-#include <vector>
-#include <algorithm>
-#include <iostream>
 
 struct Sum
 {
@@ -47,7 +42,7 @@ int main()
 
 	for (auto&& n : nums)
 	{
-		++ n;
+		++n;
 	}
 
 	std::cout << "after: ";
@@ -57,5 +52,4 @@ int main()
 	}
 	std::cout << '\n';
 	std::cout << "sum: " << s.sum << '\n';
->>>>>>> origin/master
 }
