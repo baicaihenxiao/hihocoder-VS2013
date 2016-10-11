@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include "calendar.h"
 
-static const int START_YEAR = 2010;
-static const int START_WEEKDAY = 5;
+static const int START_YEAR = 2000;
+static const int START_WEEKDAY = 6;
+
 
 void Welcome()
 {
@@ -51,10 +52,10 @@ void PrintCalendar(int year, int month)
 	days_of_month = CalculateDaysOfMonth(year, month);
 	printf("Calendar %4d - %2.2d\n", year, month);
 	printf(" ---------------------\n");
-	printf(" Su Mo Tu We Th Fr Sa\n");
+	printf(" Mo Tu We Th Fr Sa Su\n");
 	printf(" ---------------------\n");
 
-	for (i = 0; i < weekday; ++i)
+	for (i = 1; i < weekday; ++i)
 	{
 		printf("   ");
 	}
@@ -63,7 +64,7 @@ void PrintCalendar(int year, int month)
 	{
 		printf("%3d", i);
 
-		if ((i + weekday) % 7 == 0 && i != days_of_month)
+		if ((i + weekday - 1) % 7 == 0 && i != days_of_month)
 		{
 			printf("\n");
 		}
