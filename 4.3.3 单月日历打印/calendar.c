@@ -128,5 +128,13 @@ int CalculateFirstWeekday(int year, int month)
 		}
 	}
 
-	return (days_before + START_WEEKDAY) % 7;
+	int res = (days_before + START_WEEKDAY) % 7;
+
+	if (res == 0)
+	{
+		return 7;
+	}
+	else
+		return res;
+
 }
