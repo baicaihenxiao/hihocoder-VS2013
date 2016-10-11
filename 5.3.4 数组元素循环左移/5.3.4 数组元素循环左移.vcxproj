@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{8AD3DA16-E5E0-4964-A7D8-ECF05B146F1F}</ProjectGuid>
+    <ProjectGuid>{B9D29FD5-EFDF-4290-8B70-39A59D03CA9D}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>My534数组元素循环右移</RootNamespace>
+    <RootNamespace>My534数组元素循环左移</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

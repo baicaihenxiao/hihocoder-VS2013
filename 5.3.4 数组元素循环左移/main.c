@@ -4,7 +4,7 @@ void shift(int array[], int n)
 {
 	int i, array_end;
 	array_end = array[n - 1];
-	for (i = n - 1; i > 0; i --)
+	for (i = n - 1; i > 0; i--)
 	{
 		array[i] = array[i - 1];
 	}
@@ -16,7 +16,7 @@ void main()
 	int number[100], n, m, i;
 
 	scanf("%d %d", &n, &m);
-	for (i = 0; i < n; ++ i)
+	for (i = 0; i < n; ++i)
 	{
 		scanf("%d", &number[i]);
 	}
@@ -24,12 +24,12 @@ void main()
 	m %= n;
 	m = n - m;
 
-	for (i = 0; i < m; i ++)
+	for (i = 0; i < m; i++)
 	{
 		shift(number, n);
 	}
 
-	for (i = 0; i < n - 1; ++ i)
+	for (i = 0; i < n - 1; ++i)
 	{
 		printf("%d,", number[i]);
 	}
